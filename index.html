@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Godfrey Siphamandla Moyo | Data Analyst · Cloud Data Engineering · AWS</title>
+<meta name="description" content="Data Analyst and AWS Certified Cloud Practitioner completing the AWS Cloud Data Engineer path. SQL, Databricks, BigQuery and Power BI across banking, retail, media and automotive. Open to Data Analyst, Business Analyst and Data Engineering roles in Johannesburg.">
+<meta property="og:title" content="Godfrey Siphamandla Moyo | Data Analyst · Cloud Data Engineering · AWS">
+<meta property="og:description" content="I turn complex data into clear insights and reliable cloud pipelines that help organisations make faster, smarter decisions.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0B1020">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2322D3EE'/%3E%3Cstop offset='.5' stop-color='%238B5CF6'/%3E%3Cstop offset='1' stop-color='%23EC4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%230B1020'/%3E%3Cpath d='M14 46V30M26 46V20M38 46V34M50 46V14' stroke='url(%23g)' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B1020; --bg2:#0F1630; --text:#E8EBF7; --muted:#A3ACC8; --line:rgba(255,255,255,.09);
+  --glass:rgba(255,255,255,.045); --glass2:rgba(255,255,255,.07);
+  --cyan:#22D3EE; --violet:#8B5CF6; --magenta:#EC4899; --amber:#F59E0B; --green:#10B981;
+  --grad:linear-gradient(110deg,var(--cyan),var(--violet) 50%,var(--magenta));
+  --radius:20px; --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:28px 28px;
+  mask-image:linear-gradient(to bottom,#000,transparent 85%)}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Sora,Inter,sans-serif;line-height:1.15;letter-spacing:-.02em}
+.mono{font-family:"JetBrains Mono",monospace}
+.grad-text{background:var(--grad);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 8s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--cyan);color:#000;padding:8px 14px;border-radius:8px;z-index:100}
+.skip:focus{left:8px}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,16,32,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:"JetBrains Mono",monospace;font-weight:600;font-size:15px}
+.logo b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.links{display:flex;gap:28px;align-items:center;list-style:none}
+.links a{font-size:14.5px;color:var(--muted);transition:color .2s}
+.links a:hover{color:var(--text)}
+.burger{display:none;background:none;border:0;color:var(--text);width:42px;height:42px;cursor:pointer}
+.burger span{display:block;width:22px;height:2px;background:currentColor;margin:5px auto;border-radius:2px;transition:.3s}
+.nav.open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav.open .burger span:nth-child(2){opacity:0}
+.nav.open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:600;font-size:15px;transition:transform .2s,box-shadow .25s,background .25s;cursor:pointer;border:0}
+.btn-primary{background:linear-gradient(110deg,var(--cyan),var(--violet));color:#fff;box-shadow:0 6px 24px -6px rgba(139,92,246,.6)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 34px -6px rgba(34,211,238,.7)}
+.btn-ghost{position:relative;color:var(--text);background:rgba(255,255,255,.03)}
+.btn-ghost::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:var(--grad);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.btn-ghost:hover{transform:translateY(-2px);background:rgba(255,255,255,.07)}
+.btn-sm{padding:9px 18px;font-size:14px}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:110px 0 70px;overflow:hidden}
+.aurora{position:absolute;inset:-20%;z-index:-1;filter:blur(80px);opacity:.55;pointer-events:none}
+.aurora i{position:absolute;border-radius:50%;animation:drift 18s ease-in-out infinite alternate}
+.aurora i:nth-child(1){width:46vw;height:46vw;background:var(--cyan);left:8%;top:12%;opacity:.55}
+.aurora i:nth-child(2){width:40vw;height:40vw;background:var(--violet);right:6%;top:4%;animation-delay:-6s}
+.aurora i:nth-child(3){width:34vw;height:34vw;background:var(--magenta);left:40%;bottom:6%;opacity:.6;animation-delay:-12s}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(6%,-5%) scale(1.12)}100%{transform:translate(-5%,6%) scale(.95)}}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;font-size:13.5px;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(8px)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(16,185,129,.7);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+.pill.aws{position:relative;overflow:hidden;border-color:rgba(245,158,11,.4);color:#FCD34D}
+.pill.aws::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.18) 50%,transparent 70%);transform:translateX(-100%);animation:sweep 3.2s ease-in-out infinite}
+@keyframes sweep{60%,100%{transform:translateX(100%)}}
+.hi{color:var(--muted);font-size:18px;margin-bottom:6px}
+.hero h1{font-size:clamp(40px,7vw,76px);font-weight:800;margin-bottom:16px}
+.role{font-family:"JetBrains Mono",monospace;font-size:clamp(16px,2.2vw,20px);color:var(--cyan);min-height:1.6em;margin-bottom:20px}
+.role .caret{display:inline-block;width:2px;height:1.1em;background:var(--cyan);vertical-align:-3px;margin-left:3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.tagline{font-size:18px;color:var(--muted);max-width:560px;margin-bottom:32px}
+.cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:30px}
+.meta{display:flex;flex-wrap:wrap;gap:18px;align-items:center;color:var(--muted);font-size:14.5px}
+.socials{display:flex;gap:10px}
+.icon-btn{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:var(--glass);border:1px solid var(--line);transition:.25s}
+.icon-btn:hover{border-color:var(--cyan);box-shadow:0 0 18px -4px var(--cyan);transform:translateY(-2px)}
+.icon-btn svg{width:19px;height:19px;fill:currentColor}
+
+/* dashboard card */
+.dash{position:relative;padding:22px;border-radius:24px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid var(--line);backdrop-filter:blur(16px);box-shadow:0 30px 80px -30px rgba(139,92,246,.55);animation:float 7s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+.dash-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;font-size:13px;color:var(--muted)}
+.dash-top .lights{display:flex;gap:6px}.lights i{width:10px;height:10px;border-radius:50%;background:#EC4899}.lights i:nth-child(2){background:#F59E0B}.lights i:nth-child(3){background:#10B981}
+.live{display:inline-flex;align-items:center;gap:6px;color:var(--green);font-size:12px}
+.panel{background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+.panel small{display:block;color:var(--muted);font-size:12px;margin-bottom:8px}
+.line-path{stroke-dasharray:600;stroke-dashoffset:600;animation:draw 3s ease forwards .4s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.dash-row{display:grid;grid-template-columns:1.3fr 1fr;gap:12px}
+.bars{display:flex;align-items:flex-end;gap:7px;height:78px}
+.bars i{flex:1;border-radius:5px 5px 2px 2px;background:linear-gradient(to top,var(--violet),var(--cyan));transform-origin:bottom;animation:grow 1.2s cubic-bezier(.2,.8,.2,1) both}
+@keyframes grow{from{transform:scaleY(0)}}
+.donut circle{transition:stroke-dashoffset 1.5s}
+
+/* SECTIONS */
+section{padding:96px 0;position:relative}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:13.5px;color:var(--cyan);margin-bottom:10px;letter-spacing:.02em}
+.sec-title{font-size:clamp(30px,4.5vw,46px);font-weight:700;margin-bottom:44px}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .3s,box-shadow .3s,border-color .3s}
+.glass.hover:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--accent,var(--cyan)) 55%,transparent);box-shadow:0 18px 50px -18px var(--accent,var(--cyan))}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start}
+.about-text p{color:var(--muted);font-size:17px;margin-bottom:18px}
+.about-text strong{color:var(--text);font-weight:600}
+.stats{display:grid;gap:16px}
+.stat{padding:22px 24px;display:flex;align-items:center;gap:18px}
+.stat .num{font-family:Sora,sans-serif;font-size:40px;font-weight:800;line-height:1;min-width:92px}
+.stat .lbl{color:var(--muted);font-size:15px}
+.stat .lbl b{display:block;color:var(--text);font-weight:600;font-size:16px}
+
+/* skills */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.skill-card{padding:24px}
+.skill-card h3{display:flex;align-items:center;gap:12px;font-size:18px;margin-bottom:16px}
+.ico{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-size:18px;background:color-mix(in srgb,var(--accent) 16%,transparent);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:13px;padding:5px 12px;border-radius:999px;color:color-mix(in srgb,var(--accent) 70%,#fff);background:color-mix(in srgb,var(--accent) 13%,transparent);border:1px solid color-mix(in srgb,var(--accent) 32%,transparent)}
+.c-cyan{--accent:var(--cyan)}.c-violet{--accent:var(--violet)}.c-magenta{--accent:var(--magenta)}.c-amber{--accent:var(--amber)}.c-green{--accent:var(--green)}
+
+/* projects */
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.proj{padding:28px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.proj::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--accent),transparent)}
+.proj.featured{grid-column:1/-1;background:linear-gradient(135deg,rgba(34,211,238,.09),rgba(139,92,246,.08) 50%,rgba(236,72,153,.07));border-color:rgba(139,92,246,.35)}
+.proj-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.proj-num{font-family:"JetBrains Mono",monospace;color:var(--accent);font-size:14px}
+.new{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:600;padding:4px 11px;border-radius:999px;background:var(--grad);color:#fff;box-shadow:0 0 18px rgba(236,72,153,.55);animation:glow 2.4s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 0 28px rgba(34,211,238,.7)}}
+.proj h3{font-size:22px;margin-bottom:12px}
+.proj.featured h3{font-size:clamp(22px,3vw,30px)}
+.proj p{color:var(--muted);margin-bottom:16px}
+.outcome{border-left:3px solid var(--accent);background:rgba(0,0,0,.2);padding:12px 16px;border-radius:0 12px 12px 0;margin-bottom:18px;font-size:15px}
+.outcome span{display:block;font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.08em;color:var(--accent);margin-bottom:4px}
+.proj .tags{margin-bottom:22px}
+.proj .btn{margin-top:auto;align-self:flex-start}
+.proj-more{text-align:center;margin-top:34px}
+
+/* timeline */
+.timeline{position:relative;padding-left:34px;max-width:880px}
+.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--cyan),var(--violet),var(--magenta));box-shadow:0 0 12px rgba(139,92,246,.6);border-radius:2px}
+.job{position:relative;padding:24px 26px;margin-bottom:22px}
+.job::before{content:"";position:absolute;left:-33px;top:30px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--accent);box-shadow:0 0 14px var(--accent)}
+.job .when{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--accent);margin-bottom:6px}
+.job h3{font-size:20px;margin-bottom:2px}
+.job .org{color:var(--muted);font-size:15px;margin-bottom:14px}
+.job ul{list-style:none;display:grid;gap:8px}
+.job li{position:relative;padding-left:22px;color:var(--muted);font-size:15.5px}
+.job li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
+.promo{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-family:"JetBrains Mono",monospace;padding:3px 10px;border-radius:999px;background:rgba(16,185,129,.14);color:#6EE7B7;border:1px solid rgba(16,185,129,.35);margin-left:8px;vertical-align:3px}
+
+/* education + certs */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.certs{grid-template-columns:repeat(2,1fr)}
+.edu,.cert{padding:24px}
+.edu .ico,.cert .ico{margin-bottom:16px;width:46px;height:46px;font-size:22px}
+.edu h3,.cert h3{font-size:17.5px;margin-bottom:6px}
+.edu p,.cert p{color:var(--muted);font-size:14.5px}
+.status{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:12.5px;font-weight:600;padding:5px 12px;border-radius:999px}
+.status.done{background:rgba(16,185,129,.14);color:#6EE7B7;border:1px solid rgba(16,185,129,.35)}
+.status.prog{background:rgba(245,158,11,.14);color:#FCD34D;border:1px solid rgba(245,158,11,.4)}
+.status.prog::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--amber);animation:pulse-a 1.6s infinite}
+@keyframes pulse-a{50%{opacity:.25}}
+.progress{height:6px;border-radius:6px;background:rgba(255,255,255,.07);margin-top:14px;overflow:hidden;position:relative}
+.progress i{position:absolute;inset:0 35% 0 0;border-radius:6px;background:linear-gradient(90deg,var(--amber),#FCD34D,var(--amber));background-size:200% 100%;animation:shimmer 2s linear infinite}
+@keyframes shimmer{to{background-position:-200% 0}}
+.cert.in-prog{border-color:rgba(245,158,11,.35)}
+
+/* contact */
+.contact-box{text-align:center;padding:64px 28px;position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(34,211,238,.1),rgba(139,92,246,.1),rgba(236,72,153,.1));border-color:rgba(139,92,246,.3)}
+.contact-box h2{font-size:clamp(28px,4.5vw,44px);margin-bottom:16px}
+.contact-box p{color:var(--muted);max-width:620px;margin:0 auto 30px;font-size:17px}
+.email-btn{font-size:clamp(15px,2.5vw,19px);padding:16px 30px;word-break:break-all}
+.contact-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;align-items:center;margin-top:26px;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center}
+footer a:hover{color:var(--cyan)}
+
+/* reveal */
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+
+/* responsive */
+@media (max-width:960px){
+  .hero-grid,.about-grid{grid-template-columns:1fr}
+  .dash{max-width:460px}
+  .cards3{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .links{position:fixed;top:68px;left:0;right:0;flex-direction:column;gap:0;background:rgba(11,16,32,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:8px 20px 20px;transform:translateY(-120%);transition:transform .35s;visibility:hidden}
+  .nav.open .links{transform:none;visibility:visible}
+  .links li{width:100%}
+  .links a{display:block;padding:13px 0;font-size:16px;border-bottom:1px solid var(--line)}
+  .links .btn{margin-top:14px;justify-content:center;border:0}
+  .burger{display:block}
+  .nav.open{background:rgba(11,16,32,.96)}
+  .proj-grid,.cards3{grid-template-columns:1fr}
+  section{padding:72px 0}
+  .hero{padding-top:96px}
+  .job{padding:20px}
+  .timeline{padding-left:28px}
+  .job::before{left:-27px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .js .reveal{opacity:1;transform:none}
+  .line-path{stroke-dashoffset:0}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#home" class="logo" aria-label="Home"><b>GSM/</b> data.analyst</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <ul class="links" id="menu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact" class="btn btn-primary btn-sm">Let's Talk</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="badges">
+        <span class="pill"><span class="dot"></span>Available for opportunities</span>
+        <span class="pill aws">☁️ Completing: AWS Cloud Data Engineer path (Solutions Architect + Data Engineer – Associate)</span>
+      </div>
+      <p class="hi">Hi, I'm</p>
+      <h1><span class="grad-text">Godfrey Siphamandla Moyo</span></h1>
+      <p class="role" aria-label="Data Analyst, Aspiring Cloud Data Engineer, AWS Certified Cloud Practitioner"><span id="typed">Data Analyst</span><span class="caret" aria-hidden="true"></span></p>
+      <p class="tagline">I turn complex data into clear insights and reliable cloud pipelines that help organisations make faster, smarter decisions, whatever the industry.</p>
+      <div class="cta">
+        <a href="#projects" class="btn btn-primary">View Projects →</a>
+        <a href="#contact" class="btn btn-ghost">Contact Me</a>
+      </div>
+      <div class="meta">
+        <span>📍 Johannesburg, South Africa</span>
+        <div class="socials">
+          <a class="icon-btn" href="https://github.com/Rocky101798" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a>
+          <a class="icon-btn" href="https://www.linkedin.com/in/godfrey-siphamandla-moyo-761aba152" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash" aria-hidden="true">
+      <div class="dash-top">
+        <div class="lights"><i></i><i></i><i></i></div>
+        <span class="mono">insights.dashboard</span>
+        <span class="live"><span class="dot"></span>live</span>
+      </div>
+      <div class="panel">
+        <small class="mono">risk_trend.signal</small>
+        <svg viewBox="0 0 300 90" width="100%" height="90">
+          <defs>
+            <linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset=".5" stop-color="#8B5CF6"/><stop offset="1" stop-color="#EC4899"/></linearGradient>
+            <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8B5CF6" stop-opacity=".35"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/></linearGradient>
+          </defs>
+          <path d="M0 70 C30 60 45 30 75 38 S120 72 150 52 S200 12 230 28 S275 46 300 18 V90 H0Z" fill="url(#fill)"/>
+          <path class="line-path" d="M0 70 C30 60 45 30 75 38 S120 72 150 52 S200 12 230 28 S275 46 300 18" fill="none" stroke="url(#lg)" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="dash-row">
+        <div class="panel">
+          <small class="mono">channels</small>
+          <div class="bars"><i style="height:45%;animation-delay:.2s"></i><i style="height:78%;animation-delay:.3s"></i><i style="height:55%;animation-delay:.4s"></i><i style="height:92%;animation-delay:.5s"></i><i style="height:64%;animation-delay:.6s"></i><i style="height:38%;animation-delay:.7s"></i></div>
+        </div>
+        <div class="panel" style="display:grid;place-items:center">
+          <small class="mono" style="justify-self:start">segments</small>
+          <svg class="donut" viewBox="0 0 42 42" width="84" height="84">
+            <circle cx="21" cy="21" r="15.9" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="5"/>
+            <circle cx="21" cy="21" r="15.9" fill="none" stroke="#22D3EE" stroke-width="5" stroke-dasharray="45 55" stroke-dashoffset="25" stroke-linecap="round"/>
+            <circle cx="21" cy="21" r="15.9" fill="none" stroke="#8B5CF6" stroke-width="5" stroke-dasharray="30 70" stroke-dashoffset="-22" stroke-linecap="round"/>
+            <circle cx="21" cy="21" r="15.9" fill="none" stroke="#EC4899" stroke-width="5" stroke-dasharray="17 83" stroke-dashoffset="-54" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <p class="eyebrow reveal">01 / A snapshot of who I am</p>
+    <h2 class="sec-title reveal">About <span class="grad-text">Me</span></h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>Detail-oriented <strong>data professional</strong> and <strong>AWS Certified Cloud Practitioner</strong>. By day I'm a Fraud Detection Consultant at Standard Bank, turning high-volume transaction data into fast, accurate decisions on enterprise platforms such as Falcon, Mastercard, Visa and IBM. Outside the bank, I've applied the same analytical approach to <strong>retail, media &amp; streaming, and automotive</strong> datasets.</p>
+        <p>I hold a <strong>Postgraduate Diploma in Risk Management</strong> and a <strong>BA in Communication Science</strong> from UNISA, and I'm certified in Microsoft Power BI and AWS Cloud. I work hands-on with <strong>SQL across Databricks, Google BigQuery and MySQL</strong>, and I'm currently completing my <strong>AWS Cloud Data Engineer</strong> path: <strong>Solutions Architect – Associate</strong> and <strong>Data Engineer – Associate</strong>.</p>
+        <p>My goal is to build data solutions and cloud pipelines in any industry, as a <strong>Data Analyst, Business Analyst or Data Engineer</strong>.</p>
+      </div>
+      <div class="stats">
+        <div class="glass hover stat reveal c-cyan"><span class="num grad-text" data-count="2" data-suffix="+">2+</span><span class="lbl"><b>Years with Data</b>High-volume transaction analysis at Standard Bank</span></div>
+        <div class="glass hover stat reveal c-amber"><span class="num grad-text" data-count="2">2</span><span class="lbl"><b>Certifications</b>+2 in progress (AWS Solutions Architect &amp; Data Engineer)</span></div>
+        <div class="glass hover stat reveal c-magenta"><span class="num grad-text" data-count="15" data-suffix="+">15+</span><span class="lbl"><b>Tools &amp; Platforms</b>From SQL and BI to cloud</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <p class="eyebrow reveal">02 / What I work with daily</p>
+    <h2 class="sec-title reveal">Skills &amp; <span class="grad-text">Toolkit</span></h2>
+    <div class="skills-grid">
+      <div class="glass hover skill-card reveal c-cyan"><h3><span class="ico">📊</span>Data &amp; BI</h3><div class="tags"><span class="tag">SQL</span><span class="tag">Databricks (Primary)</span><span class="tag">Google BigQuery</span><span class="tag">MySQL</span><span class="tag">Power BI (Certified)</span><span class="tag">Excel (Advanced)</span><span class="tag">DAX</span></div></div>
+      <div class="glass hover skill-card reveal c-amber"><h3><span class="ico">☁️</span>Cloud</h3><div class="tags"><span class="tag">AWS Cloud Practitioner (Certified)</span><span class="tag">AWS Solutions Architect – Associate (In Progress)</span><span class="tag">AWS Data Engineer – Associate (In Progress)</span><span class="tag">Cloud Services</span><span class="tag">Cloud Architecture Fundamentals</span></div></div>
+      <div class="glass hover skill-card reveal c-magenta"><h3><span class="ico">🛡️</span>Domain: Banking &amp; Fraud Systems</h3><div class="tags"><span class="tag">Falcon</span><span class="tag">Mastercard Risk Tools</span><span class="tag">Visa Systems</span><span class="tag">IBM Software</span><span class="tag">BDS</span></div></div>
+      <div class="glass hover skill-card reveal c-violet"><h3><span class="ico">🔍</span>Core Competencies</h3><div class="tags"><span class="tag">Data Cleaning &amp; Transformation</span><span class="tag">SQL Pipelines (CTEs, Window Functions)</span><span class="tag">Dashboard Design &amp; Storytelling</span><span class="tag">Digital Fraud Investigation</span><span class="tag">Financial Crime Risk Assessment</span><span class="tag">AML &amp; Compliance Awareness</span></div></div>
+      <div class="glass hover skill-card reveal c-violet"><h3><span class="ico">📈</span>Analytics</h3><div class="tags"><span class="tag">Trend Analysis</span><span class="tag">Data-Driven Decision Making</span><span class="tag">Stakeholder Reporting &amp; Communication</span></div></div>
+      <div class="glass hover skill-card reveal c-green"><h3><span class="ico">🤖</span>AI &amp; LLMs</h3><div class="tags"><span class="tag">AI-assisted data interpretation</span><span class="tag">Workflow automation</span><span class="tag">Analytical problem-solving</span></div></div>
+      <div class="glass hover skill-card reveal c-cyan"><h3><span class="ico">🗂️</span>Productivity</h3><div class="tags"><span class="tag">Microsoft Word</span><span class="tag">PowerPoint</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <p class="eyebrow reveal">03 / Selected analytical work</p>
+    <h2 class="sec-title reveal">Featured <span class="grad-text">Projects</span></h2>
+    <div class="proj-grid">
+      <article class="glass hover proj featured reveal c-cyan">
+        <div class="proj-head"><span class="proj-num">01 · Featured</span><span class="new">NEW</span></div>
+        <h3>Banking &amp; Finance Analysis <span style="color:var(--muted);font-weight:500">· Bright Motors Banking</span></h3>
+        <p>End-to-end analytics project simulating a junior data analyst role at a fictional bank. I took 5,600 rows of messy raw data across customers, accounts and transactions, then cleaned, deduplicated and joined it with SQL in Databricks, and built a professional Power BI dashboard of customer and transaction insights.</p>
+        <div class="outcome"><span>OUTCOME</span>Resolved 15+ data quality issues (text-stored numbers, inconsistent categories, typos, ~100 duplicate transactions) using CTEs, ROW_NUMBER() and TRY_CAST, producing a clean 3,000-row analysis-ready dataset and an interactive dashboard.</div>
+        <div class="tags"><span class="tag">SQL</span><span class="tag">Databricks</span><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Data Cleaning</span></div>
+        <a class="btn btn-primary btn-sm" href="https://github.com/Rocky101798/SQL-Projects-/tree/main/Banking-Finance-Analysis" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </article>
+
+      <article class="glass hover proj reveal c-magenta">
+        <div class="proj-head"><span class="proj-num">02</span></div>
+        <h3>Bright Motors Car Sales Analysis</h3>
+        <p>Analysed vehicle sales data for Bright Motors to give the new Head of Sales actionable insights on top-performing makes and models, pricing dynamics and regional sales trends.</p>
+        <div class="outcome"><span>OUTCOME</span>Cleaned and standardised the data in SQL, built calculated fields (price vs market value, profit margin %), and delivered recommendations on inventory, pricing and regional expansion.</div>
+        <div class="tags"><span class="tag">SQL</span><span class="tag">Excel</span><span class="tag">Power BI</span><span class="tag">Miro</span></div>
+        <a class="btn btn-ghost btn-sm" href="https://github.com/Rocky101798/Motors-CarSales-Analysis" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </article>
+
+      <article class="glass hover proj reveal c-amber">
+        <div class="proj-head"><span class="proj-num">03</span></div>
+        <h3>Retail Sales Analysis</h3>
+        <p>Analysed multi-region retail transaction data in Google BigQuery to surface revenue drivers, seasonal trends and underperforming products.</p>
+        <div class="tags"><span class="tag">SQL</span><span class="tag">BigQuery</span><span class="tag">Excel</span></div>
+        <a class="btn btn-ghost btn-sm" href="https://github.com/Rocky101798/BigQuery-Practice/blob/main/Retail%20sales/Google%20BigQuery%20Retail%20Sales%20Dataset" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </article>
+
+      <article class="glass hover proj reveal c-violet">
+        <div class="proj-head"><span class="proj-num">04</span></div>
+        <h3>BrightLearn TV Viewership Analysis</h3>
+        <p>Analysed viewership engagement patterns across age groups, regions and content categories to inform content scheduling and audience segmentation.</p>
+        <div class="tags"><span class="tag">SQL</span><span class="tag">Databricks</span><span class="tag">Excel</span></div>
+        <a class="btn btn-ghost btn-sm" href="https://github.com/Rocky101798/BrightLearn-TV-" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </article>
+
+      <article class="glass hover proj reveal c-green">
+        <div class="proj-head"><span class="proj-num">05</span></div>
+        <h3>Coffee Shop Sales Dashboard</h3>
+        <p>Built an interactive dashboard tracking hourly sales, product mix and store performance across multiple locations.</p>
+        <div class="tags"><span class="tag">Excel</span><span class="tag">Pivot Tables</span><span class="tag">Power BI</span></div>
+        <a class="btn btn-ghost btn-sm" href="https://github.com/Rocky101798/coffee-shop-data-analysis" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </article>
+    </div>
+    <div class="proj-more reveal"><a class="btn btn-ghost" href="https://github.com/Rocky101798" target="_blank" rel="noopener noreferrer">See all projects on GitHub →</a></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <p class="eyebrow reveal">04 / Where I've worked</p>
+    <h2 class="sec-title reveal"><span class="grad-text">Experience</span></h2>
+    <div class="timeline">
+      <div class="glass job reveal c-cyan">
+        <p class="when">April 2026 — Present</p>
+        <h3>Fraud Detection Consultant <span class="promo">↑ Promoted</span></h3>
+        <p class="org">Standard Bank Group · Marshalltown, Johannesburg</p>
+        <ul>
+          <li>Assess suspicious and unusual transactions on accounts and cards referred via fraud detection systems, tools and emails.</li>
+          <li>Take prompt remedial action to prevent risk and financial loss to the bank and its customers.</li>
+          <li>Investigate and detect illegal, fraudulent or improper activity by monitoring accounts.</li>
+          <li>Analyse trends, report on security threats and resolve fraud cases to mitigate financial loss.</li>
+          <li>Maintain a customer-centric focus across customers and business units.</li>
+        </ul>
+      </div>
+      <div class="glass job reveal c-violet">
+        <p class="when">January 2024 — April 2026</p>
+        <h3>Officer, Fraud Risk Management</h3>
+        <p class="org">Standard Bank Group · Marshalltown, Johannesburg</p>
+        <ul>
+          <li>Frontline defender against digital financial crime: investigated online fraud across e-channels, from suspicious transactions to account takeover attempts.</li>
+          <li>Monitored accounts and transactions in real time using Falcon, Mastercard, Visa and IBM platforms.</li>
+          <li>Investigated and resolved complex fraud cases end-to-end, contributing to reduced financial losses.</li>
+          <li>Analysed fraud trends and delivered data-driven reports to stakeholders to inform risk strategy.</li>
+          <li>Translated complex fraud data into actionable insights for decision-makers.</li>
+        </ul>
+      </div>
+      <div class="glass job reveal c-magenta">
+        <p class="when">December 2021 — August 2023</p>
+        <h3>Sales Representative</h3>
+        <p class="org">Cotton On · Sandton, Johannesburg</p>
+        <ul>
+          <li>Increased sales through promotional strategies and exclusive customer offers.</li>
+          <li>Delivered excellent service across purchases, refunds, product queries and complaints.</li>
+          <li>Boosted customer loyalty by using sister stores and online platforms to locate items.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <p class="eyebrow reveal">05 / Academic background</p>
+    <h2 class="sec-title reveal"><span class="grad-text">Education</span></h2>
+    <div class="cards3">
+      <div class="glass hover edu reveal c-cyan"><div class="ico">🎓</div><h3>Postgraduate Diploma in Risk Management</h3><p>University of South Africa (UNISA)</p></div>
+      <div class="glass hover edu reveal c-violet"><div class="ico">🎓</div><h3>BA Communication Science</h3><p>University of South Africa (UNISA)</p></div>
+      <div class="glass hover edu reveal c-magenta"><div class="ico">🏫</div><h3>National Senior Certificate</h3><p>Fourways High School</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="wrap">
+    <p class="eyebrow reveal">06 / Credentials</p>
+    <h2 class="sec-title reveal"><span class="grad-text">Certifications</span></h2>
+    <div class="cards3 certs">
+      <div class="glass hover cert reveal c-amber"><div class="ico">☁️</div><h3>AWS Certified Cloud Practitioner</h3><p>Amazon Web Services · issued via Credly</p><span class="status done">✓ Certified</span></div>
+      <div class="glass hover cert reveal c-cyan"><div class="ico">📊</div><h3>Microsoft Power BI Desktop for Business Intelligence</h3><p>Udemy · Maven Analytics (17 hrs)</p><span class="status done">✓ Certified</span></div>
+      <div class="glass hover cert in-prog reveal c-amber"><div class="ico">🏗️</div><h3>AWS Certified Solutions Architect – Associate</h3><p>Amazon Web Services · AWS Cloud Data Engineer path</p><span class="status prog">In Progress</span><div class="progress" aria-hidden="true"><i></i></div></div>
+      <div class="glass hover cert in-prog reveal c-violet"><div class="ico">🔧</div><h3>AWS Certified Data Engineer – Associate</h3><p>Amazon Web Services · AWS Cloud Data Engineer path</p><span class="status prog">In Progress</span><div class="progress" aria-hidden="true"><i></i></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="glass contact-box reveal">
+      <p class="eyebrow">Let's collaborate</p>
+      <h2>Have a project or role <span class="grad-text">in mind?</span></h2>
+      <p>I'm pursuing Data Analyst, Business Analyst and Data Engineering roles in any industry, and I'm open to freelance data analytics and cloud data work with SMEs. Let's turn your data into smarter, faster decisions.</p>
+      <a class="btn btn-primary email-btn" href="mailto:godfreymoyo8@gmail.com">✉️ godfreymoyo8@gmail.com</a>
+      <div class="contact-meta">
+        <a class="icon-btn" href="https://www.linkedin.com/in/godfrey-siphamandla-moyo-761aba152" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
+        <a class="icon-btn" href="https://github.com/Rocky101798" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.240-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.170-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.420-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a>
+        <span>📍 Johannesburg, South Africa</span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Godfrey Siphamandla Moyo · Built with data &amp; care</span>
+    <a href="#home">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav = document.getElementById('nav'), burger = document.getElementById('burger');
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 20); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  document.querySelectorAll('#menu a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); burger.setAttribute('aria-expanded', false); });
+  });
+
+  // Typewriter
+  var roles = ['Data Analyst','Aspiring Cloud Data Engineer','AWS Certified Cloud Practitioner'];
+  var el = document.getElementById('typed');
+  if(!reduce){
+    var r = 0, i = roles[0].length, deleting = true;
+    setTimeout(function tick(){
+      var word = roles[r];
+      i += deleting ? -1 : 1;
+      el.textContent = word.slice(0, i);
+      var delay = deleting ? 40 : 75;
+      if(deleting && i === 0){ deleting = false; r = (r + 1) % roles.length; delay = 300; }
+      else if(!deleting && i === roles[r].length){ deleting = true; delay = 2000; }
+      if(!deleting) word = roles[r];
+      setTimeout(tick, delay);
+    }, 2200);
+  }
+
+  // Count-up
+  function countUp(node){
+    var target = +node.dataset.count, suffix = node.dataset.suffix || '', start = null;
+    if(reduce){ node.textContent = target + suffix; return; }
+    function step(t){
+      if(!start) start = t;
+      var p = Math.min((t - start) / 1200, 1);
+      node.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Reveal on scroll (staggered)
+  var items = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){ items.forEach(function(n){ n.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var n = e.target, sibs = Array.prototype.filter.call(n.parentNode.children, function(c){ return c.classList.contains('reveal'); });
+      n.style.transitionDelay = (Math.max(sibs.indexOf(n), 0) % 6) * 80 + 'ms';
+      n.classList.add('in');
+      n.querySelectorAll('[data-count]').forEach(countUp);
+      io.unobserve(n);
+    });
+  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  items.forEach(function(n){ io.observe(n); });
+})();
+</script>
+</body>
+</html>
