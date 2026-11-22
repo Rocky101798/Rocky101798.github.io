@@ -1,4 +1,4 @@
-# 🌐 Godfrey Siphamandla Moyo — Portfolio
+# 🌐 Siphamandla Moyo — Portfolio
 
 Live at **https://rocky101798.github.io**
 
